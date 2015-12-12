@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/adduser', function(req, resp, next){
-	userDAO.add(req, resp, next);
-})
+router.get('/findUser/', function(req, res, next) {
+  userDAO.find(req, res, next);
+});
 
 module.exports = router;
