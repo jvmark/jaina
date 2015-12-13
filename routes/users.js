@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var userDAO = require('../dao/userDAO')
+var userService = require('../service/userService');
+var userDAO = require('../dao/userDAO');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -8,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/findUser/', function(req, res, next) {
-  userDAO.find(req, res, next);
+  userService.findById(req, res, next);
 });
 
 module.exports = router;

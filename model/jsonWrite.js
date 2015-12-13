@@ -1,14 +1,14 @@
-var jsonWrite = function (res, ret) {
-  if(typeof ret === 'undefined') {
+var jsonWrite = function(res, ret) {
+  if (typeof ret === 'undefined') {
     res.json({
-      code:'100',
+      code: '100',
       msg: 'failed'
     });
   } else {
     res.json({
-    	code:'200',
-    	msg: 'success',
-    	data: ret
+      code: '200',
+      msg: 'success',
+      data: ret
     });
   }
 };

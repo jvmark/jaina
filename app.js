@@ -24,7 +24,9 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 // 定义数据解析器
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 // 定义cookie解析器
 app.use(cookieParser());
 // 定义静态文件目录
@@ -38,9 +40,9 @@ app.use('/users', users);
 // 404错误处理
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -50,13 +52,13 @@ app.use(function(req, res, next) {
 
 // 开发环境,500错误处理
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
@@ -64,11 +66,11 @@ if (app.get('env') === 'development') {
 
 // 生产环境,500错误处理
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 // 输出到模型app
