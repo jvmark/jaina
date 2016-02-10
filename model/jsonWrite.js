@@ -1,8 +1,13 @@
-var jsonWrite = function(res, ret) {
-  if (typeof ret === 'undefined') {
+var jsonWrite = function(res, param, ret) {
+  if (typeof param === 'undefined') {
     res.json({
-      code: '100',
-      msg: 'failed'
+      code: '404',
+      msg: 'not found'
+    });
+  } else if (typeof ret === 'undefined') {
+    res.json({
+      code: '401',
+      msg: 'invalid param'
     });
   } else {
     res.json({
