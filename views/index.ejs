@@ -39,7 +39,7 @@
         </div>
         <div class="row">
             <div class="span12">
-                <p class="text-right lead">如果有问题请邮件我</p>
+                <p class="text-right lead">email address</p>
                 <p class="text-right lead">
                     <em>Email:mark@onmysky.com</em>
                 </p>
@@ -82,22 +82,22 @@
             }
         });
 
-        function sendLedControl(dev_id, cur_status) {
+        function sendLedControl(dev_id, cur_status) {   
             $.ajax({
                 url: '/users/query/?id=' + dev_id, // /api/
                 async: true,
                 dataType: 'json',
                 type: 'get',
-                data: JSON.stringify({
-                    status: cur_status
-                }),
+                // data: JSON.stringify({
+                //     status: cur_status
+                // }),
                 // data: {status:cur_status},
                 // contentType: "application/json; charset=utf8",
 
                 success: function(data, textStatus) {
                     // 返回的内容在
                     // console.log(data.status);
-                    console.log("success");
+                    console.log(cur_status);
                     console.log(data.data[0]);
                     $('table').children('tbody').children('tr').children("td").eq(2).text(data.data[0].name);
                 },
